@@ -11,6 +11,7 @@ const messages = [
 ];
 
 let messageIndex = 0;
+let kissCount = 0;
 
 function handleYesClick() {
     const yesButton = document.querySelector('.yes-button');
@@ -20,6 +21,16 @@ function handleYesClick() {
     messageIndex = (messageIndex + 1) % messages.length;
     const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
     yesButton.style.fontSize = `${currentSize * 1.1}px`;
+    kissAnimation();
+    kissCount++;
+}
+
+function kissAnimation() {
+    const normalPhoto = document.querySelector('.normal_photo img');
+    normalPhoto.src = "images/kiss.png";
+    setTimeout(() => {
+        normalPhoto.src = "images/normal.png";
+    }, 200);
 }
 
 function handleNoClick() {
