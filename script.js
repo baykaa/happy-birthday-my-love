@@ -1,27 +1,27 @@
 const messages = [
-    "Are you sure?",
-    "Really sure??",
-    "Are you positive?",
-    "Pookie please...",
-    "Just think about it!",
-    "If you say no, I will be really sad...",
-    "I will be very sad...",
-    "I will be very very very sad...",
-    "Ok fine, I will stop asking...",
-    "Just kidding, say yes please! ❤️"
+    "Aww... <br>  Do you want one more? 😘",
+    "You sure? <br> I might not stop after this one... 😏",
+    "Mmm... Your lips are addictive. <br> Shall we go for round 3? 🔥",
+    "Uh-oh... I’m heating up 😳 <br> Just one more? Or two?",
+    "You’re making it really hard to stop... 😈 <br> Wanna make out instead?",
+    "My heart's pounding... <br> I think I need CPR — from your lips. 😮‍💨❤️",
+    "This is getting dangerous. <br> One more kiss... or should we just cuddle forever? 💋",
+    "You’ve officially broken the kiss counter 😵‍💫 <br> Shall we upgrade to birthday cuddles?",
+    "You're the reason I believe in magic. <br> One last kiss before your surprise? 🎉💖"
 ];
 
 let messageIndex = 0;
 
-function handleNoClick() {
-    const noButton = document.querySelector('.no-button');
+function handleYesClick() {
     const yesButton = document.querySelector('.yes-button');
-    noButton.textContent = messages[messageIndex];
+    const noButton = document.querySelector('.no-button');
+    const mainMessage = document.querySelector('.subheader_message');
+    mainMessage.innerHTML = messages[messageIndex];
     messageIndex = (messageIndex + 1) % messages.length;
     const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
-    yesButton.style.fontSize = `${currentSize * 1.5}px`;
+    yesButton.style.fontSize = `${currentSize * 1.1}px`;
 }
 
-function handleYesClick() {
-    window.location.href = "yes_page.html";
+function handleNoClick() {
+    window.location.href = "no_page.html";
 }
