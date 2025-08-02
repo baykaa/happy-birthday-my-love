@@ -12,11 +12,17 @@ const messages = [
 
 let messageIndex = 0;
 let kissCount = 0;
+const gifInitialSize = 150; // Initial size of the GIF in pixels
+const gifSizeIncrement = 40; // How much the GIF grows with each kiss
 
 function handleYesClick() {
     const yesButton = document.querySelector('.yes-button');
     const noButton = document.querySelector('.no-button');
     const mainMessage = document.querySelector('.subheader_message');
+    if (kissCount >= messages.length) {
+        window.location.href = "happy_birthday.html";
+        return;
+    }
     mainMessage.innerHTML = messages[messageIndex];
     messageIndex = (messageIndex + 1) % messages.length;
     const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
@@ -27,10 +33,31 @@ function handleYesClick() {
 
 function kissAnimation() {
     const normalPhoto = document.querySelector('.normal_photo img');
-    normalPhoto.src = "images/kiss.png";
+    const gifContainer = document.querySelector('.gif_container');
+ 
+    normalPhoto.src = "images/kiss.png"; // Show the kiss image
+ 
+    // After a short delay, show the animated GIF
     setTimeout(() => {
-        normalPhoto.src = "images/normal.png";
-    }, 200);
+        // Calculate the new size for the GIF
+        const newGifSize = gifInitialSize + kissCount * gifSizeIncrement;
+ 
+        // Add a unique timestamp to the GIF's src to force it to replay the animation
+        const gifSrc = `images/hearts.gif?t=${new Date().getTime()}`;
+ 
+        // Set the GIF and its size, then display it
+        gifContainer.innerHTML = `<img src="${gifSrc}" alt="Kiss GIF" style="width: ${newGifSize}px;">`;
+        gifContainer.style.display = 'block';
+ 
+        // Hide the GIF overlay after it has played for a bit
+        setTimeout(() => {
+            gifContainer.style.display = 'none';
+        }, 1000); // GIF will be visible for 1 second
+    }, 200); // 200ms delay before the GIF appears
+ 
+    setTimeout(() => {
+        normalPhoto.src = "images/normal.png"; // Revert to normal image
+    }, 700);
 }
 
 function handleNoClick() {

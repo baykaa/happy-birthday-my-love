@@ -5,8 +5,10 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #f9e3e3;
-    font-family: 'Arial', sans-serif;
     flex-direction: column;
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
   }
   
   .container {
@@ -31,6 +33,17 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+
+  .subheader_message {
+    font-size: 1.2em;
+    color: #555;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    line-height: 1.5;
   }
   
   .no-button {
@@ -41,9 +54,26 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
   }
   
   .normal_photo img {
     padding-top: 15px;
     height: 350px;
+  }
+
+  .gif_container {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* Ensures it's on top of other content */
+  }
+
+  .gif_container img {
+    width: 100%;
+    height: auto;
   }
