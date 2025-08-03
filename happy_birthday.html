@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,24 +8,45 @@
     <link rel="stylesheet" href="css/happy_birthday.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&display=swap"
+        rel="stylesheet">
 
 </head>
+
 <body>
-    <h1>Happy Birthday My Love!</h1>
-    <p>On this special day, I just want to remind you how much you mean to me.</p>
-    <div class="normal_photo">
-        <img src="images/normal.png" alt="Happy Birthday">
+    <div class="container">
+        <h1>Happy Birthday My Love!</h1>
+        <p>On this special day, I just want to remind you how much you mean to me.
+            <br>
+            Since I can’t be there in person, I made this little website just for you!
+            <br>
+            Also… I have a confession ….
+            <br>
+            When I said I was doing homework on video calls…
+            <br>
+            I was actually working on this. 😅
+        </p>
+        <p>
+            Now come on, think of a wish and blow the candle!
+        </p>
+        <div class="cake_container">
+            <img src="images/cake_normal.gif" alt="Birthday Cake">
+        </div>
+        <div>
+            <button class="blow-button" id="blowButton" onclick="handleBlowClick()">
+                blow the candle!
+            </button>
+        </div>
+        <div>
+            <button class="kiss-button" onclick="handleGoBackClick()">
+                Kiss me again!
+            </button>
+        </div>
     </div>
-    <div>
-        <button class="kiss-button" onclick="handleGoBackClick()">
-            Kiss me again!
-        </button>
-    </div>
-    <script>
-        function handleGoBackClick() {
-            window.location.href = "index.html";
-        }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="happy_birthday.js"></script>
+
 </body>
+
 </html>
