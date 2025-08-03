@@ -1,10 +1,14 @@
+document.addEventListener('DOMContentLoaded', () => {
+    birthdaySong();
+});
+
 const blowButton = document.getElementById('blowButton');
 
 blowButton.addEventListener('click', handleBlowClick);
 
 function handleBlowClick() {
     blowCandle()
-    // blowButton.disabled = true; // Disable the button after blowing the candle
+    blowButton.disabled = true; 
     var duration = 15 * 1000;
     var animationEnd = Date.now() + duration;
     var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
@@ -25,6 +29,8 @@ function handleBlowClick() {
     confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
     confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
     }, 250);
+    
+    changeMessage()
 }
 
 function handleGoBackClick() {
@@ -42,8 +48,33 @@ function blowCandle() {
     }, 900); // Delay to simulate the blowing action
 
     // Optionally, you can add a sound effect here
-    // const audio = new Audio('sounds/blow_candle.mp3');
-    // audio.play().catch(error => {
-    //     console.error("Error playing sound:", error);
-    // });
+    const audio = new Audio('sounds/firework.mp3');
+    audio.play().catch(error => {
+        console.error("Error playing sound:", error);
+    });
+}
+
+function birthdaySong() {
+    const audio = new Audio('sounds/hb_song.mp3');
+    audio.play().catch(error => {
+        console.error("Error playing sound:", error);
+    });
+}
+
+function changeMessage() {
+    const messageElement = document.querySelector('.message');
+
+    const messages = [
+        "I love you more than words can say and",
+        "I am so grateful for every moment we share.",
+        "I hope our future is filled with even more love, laughter, and happiness.",
+        "I LOVE YOU (My lovie dovie dubie hair) ❤️",
+    ];
+    
+    let index = 0;
+    
+    setInterval(() => {
+        messageElement.textContent = messages[index];
+        index = (index + 1) % messages.length;
+    }, 5000); // Change message every 5 seconds
 }
