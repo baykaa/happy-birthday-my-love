@@ -19,15 +19,26 @@ function handleYesClick() {
     const yesButton = document.querySelector('.yes-button');
     const noButton = document.querySelector('.no-button');
     const mainMessage = document.querySelector('.subheader_message');
+
     if (kissCount >= messages.length) {
-        window.location.href = "happy_birthday.html";
+        kissAnimation();
+        kissSound(); // Show the kiss animation one last time
+
+        // Disable buttons to prevent further clicks
+        yesButton.disabled = true;
+        noButton.disabled = true;
+
+        setTimeout(() => {
+            window.location.href = "happy_birthday.html";
+        }, 1500); // Delay to ensure the last kiss is shown before redirecting
         return;
     }
+    kissAnimation();
+    kissSound();
     mainMessage.innerHTML = messages[messageIndex];
     messageIndex = (messageIndex + 1) % messages.length;
     const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
     yesButton.style.fontSize = `${currentSize * 1.1}px`;
-    kissAnimation();
     kissCount++;
 }
 
@@ -58,6 +69,22 @@ function kissAnimation() {
     setTimeout(() => {
         normalPhoto.src = "images/normal.png"; // Revert to normal image
     }, 700);
+}
+
+function kissSound() {
+    let kissSoundNum = [1, 2];
+    kissSoundNum = kissSoundNum[Math.floor(Math.random() * kissSoundNum.length)];
+    const audio = new Audio();
+
+    if (kissCount >= messages.length) {
+        audio.src = "sounds/final_kiss.mp3";
+    } else {
+        audio.src = `sounds/kiss_sound_${kissSoundNum}.mp3`;
+    }
+    
+    audio.play().catch(error => {
+        console.error("Error playing sound:", error);
+    });
 }
 
 function handleNoClick() {

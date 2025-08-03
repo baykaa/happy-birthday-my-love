@@ -9,27 +9,27 @@ body {
     font-family: "Pixelify Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-  }
-  
-  .container {
-    text-align: center;
-  }
+}
 
-  h1 {
+.container {
+    text-align: center;
+}
+
+h1 {
     font-size: 3em;
     color: #d32f2f;
-  }
-  
-  h2 {
+}
+
+h2 {
     font-size: 2.5em;
     color: #d32f2f;
-  }
-  
-  .buttons {
+}
+
+.buttons {
     margin-top: 20px;
-  }
-  
-  .kiss-button {
+}
+
+.kiss-button {
     font-size: 1.5em;
     padding: 10px 20px;
     margin-top: 30px;
@@ -41,17 +41,17 @@ body {
     cursor: pointer;
     font-family: "Pixelify Sans", sans-serif;
     font-optical-sizing: auto;
-  }
+}
 
-  .subheader_message {
+.subheader_message {
     font-size: 1.2em;
     color: #555;
     margin-top: 10px;
     margin-bottom: 20px;
     line-height: 1.5;
-  }
-  
-  .no-button {
+}
+
+.no-button {
     font-size: 1.5em;
     padding: 10px 20px;
     background-color: #f44336;
@@ -62,23 +62,25 @@ body {
     font-family: "Pixelify Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-  }
-  
-  .normal_photo img {
+}
+
+.normal_photo img {
     padding-top: 15px;
     height: 350px;
-  }
+}
 
-  .gif_container {
-    display: none; /* Hidden by default */
+.gif_container {
+    display: none;
+    /* Hidden by default */
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1000; /* Ensures it's on top of other content */
-  }
+    z-index: 1000;
+    /* Ensures it's on top of other content */
+}
 
-  .gif_container img {
+.gif_container img {
     width: 100%;
     height: auto;
-  }
+}
