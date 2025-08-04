@@ -8,17 +8,42 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
-
+    <style>
+        #interaction-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f9e3e3; /* Match body background from other css files */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            cursor: pointer;
+            font-family: "Pixelify Sans", sans-serif;
+            font-size: 1.5em;
+            color: #d32f2f;
+            text-align: center;
+            padding: 20px;
+        }
+        .container.hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
+    <div id="interaction-overlay">
+        <p>Why would you press NO...?<br>Tap to see what you've done.</p>
+    </div>
+    <div class="container hidden">
         <h1 class="header_text">Sniff sniff... 😭</h1>
-        <h2 class="subheader_message">That hurt more than heartbreak...<br> Wanna try again?</h2>
+        <h2 class="subheader_message">That hurt more than heartbreak...<br> I wont forgive next time...</h2>
         <div class="cry_container">
             <img src="images/crying_bayka.png" alt="Bayka crying" class="crying_bayka">
         </div>
         <button class="yes-button" onclick="window.location.href='./index.html'">
-            I'm sorry... okay 😘!
+            I'm sorry... kiss me please 😘!
         </button>
     </div>
     <script src="no_page.js"></script>
